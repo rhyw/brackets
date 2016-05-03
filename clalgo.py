@@ -5,7 +5,7 @@
 # 1429+(184*30*1/2) where you repalce 1/2 with 1/3|1/4 to get 1/3|1/4
 
 # Objectives:
-# python clcalc.py 201609 0.125
+# python clalgo.py 201609 0.125
 # where `201609` is positional argument and 0.125 optional.
 # without specifing 0.125(ratio), all ratios will be listed.
 
@@ -13,6 +13,13 @@ import argparse
 
 from calendar import monthrange
 import datetime
+
+# Starting point, on the month of 199205.
+YEARMONTH = "199205"
+START = 1429
+# Average price raises each month.
+GAP = 30
+RATIOS = [0.125, 0.25, 0.333, 0.5, 0.667, 0.75, 1]
 
 
 def monthdelta(d1, d2):
@@ -30,13 +37,6 @@ def monthdelta(d1, d2):
             break
     return delta
 
-# Starting point, on the month of 199205.
-YEARMONTH = "199205"
-START = 1429
-# Average distance it goes for each month.
-GAP = 30
-RATIOS = [0.125, 0.25, 0.333, 0.5, 0.667, 0.75, 1]
-
 parser = argparse.ArgumentParser()
 parser.add_argument("-ym", "--yearmonth", type=str,
                     help="Year and month with form: 'YYYYmm', e.g., 201606")
@@ -50,7 +50,7 @@ if args.yearmonth:
     try:
         delta2 = datetime.datetime.strptime(args.yearmonth, '%Y%m')
     except ValueError:
-        print "Unrecognized yearmonth format. Please use 'YYYYmm' instead."
+        parser.error("Unrecognized yearmonth format, use 'YYYYmm' instead.")
 else:
     delta2 = datetime.datetime.today()
 
@@ -60,5 +60,4 @@ if args.ratio:
     print "{:1.3f}: {:5.0f}".format(args.ratio, START+(delta*GAP*args.ratio))
 else:
     for ratio in RATIOS:
-        # print "%8s: %d" %(ratio, START+(r*i*ratio))
         print "{:1.3f}: {:5.0f}".format(ratio, START+(delta*GAP*ratio))
