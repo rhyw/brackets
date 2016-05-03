@@ -9,7 +9,7 @@ import datetime
 start = 1429
 r = 184
 i = 30
-ratios = [0.25, 0.333, 0.5, 0.667, 0.75, 1]
+ratios = [0.125, 0.25, 0.333, 0.5, 0.667, 0.75, 1]
 
 d1=datetime.datetime.strptime(str('1992-05-29'), '%Y-%m-%d')
 d2=datetime.datetime.today()
@@ -30,5 +30,5 @@ delta = monthdelta(d1, d2)
 
 for ratio in ratios:
     # print "%8s: %d" %(ratio, start+(r*i*ratio))
-    print "{:1.3f}: {:5.0f}".format(ratio, start+(r*i*ratio))
+    print "{:1.3f}: {:5.0f}".format(ratio, start+(delta*i*ratio))
 
