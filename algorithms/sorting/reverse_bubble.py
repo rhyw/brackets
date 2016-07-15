@@ -1,6 +1,19 @@
 #!/usr/bin/env python
 
+def bubble_sort(arr):
+    """
+    The bubble sort makes multiple passes through a list. It compares
+    adjacent items and exchanges those that are out of order. Each pass
+    through the list places the next largest value in its proper place.
+    In essence, each item "bubbles" up to the location where it belongs.
+    """
+    pass
+
 def reverse_bubble_sort(arr):
+    """
+    This is a reverse bubble which which bubbles smallest numbers to top
+    for each loop.
+    """
     # For a n-length array, (n-1) loop is needed.
     print "{: <16}: {}".format('Original array', arr)
     for i in range(len(arr)-1):
