@@ -28,4 +28,3 @@ def selection_sort(arr):
 if __name__ == '__main__':
     l = [144, 233, 5, 8, 21, 13, 55, 34, 89, 2, 3]
     selection_sort(l)
-
