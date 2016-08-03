@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+def sample_sort(arr):
+    """
+    FIXME: Template for sorting algorithms. Replace the docstring
+    with the exact the sort mechanism.
+    """
+
+    print "{: <16}: {}".format('Original array', arr)
+    # for i in range(1, len(arr), 1):
+        # # Your code goes here.
+        # print "{: <16}: {}".format("After loop {}".format(i), arr)
+
+if __name__ == '__main__':
+    l = [144, 233, 5, 8, 21, 13, 55, 34, 89, 2, 3]
+    sample_sort(l)
+
